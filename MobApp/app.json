@@ -1,0 +1,42 @@
+{
+  "expo": {
+    "name": "IT Asset Dashboard",
+    "slug": "it-asset-dashboard",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/images/icon.png",
+    "scheme": "myapp",
+    "userInterfaceStyle": "automatic",
+    "newArchEnabled": true,
+    "ios": {
+      "supportsTablet": true
+    },
+    "web": {
+      "bundler": "metro",
+      "output": "single",
+      "favicon": "./assets/images/favicon.png",
+      "meta": {
+        "title": "IT Asset Dashboard",
+        "description": "Track and manage your IT assets with ease"
+      }
+    },
+    "router": {
+      "appRoot": "app"
+    },
+    "plugins": [
+      "expo-router",
+      "expo-barcode-scanner",
+      [
+        "expo-camera",
+        {
+          "cameraPermission": "Allow $(PRODUCT_NAME) to access your camera",
+          "microphonePermission": "Allow $(PRODUCT_NAME) to access your microphone",
+          "recordAudioAndroid": true
+        }
+      ]
+    ],
+    "experiments": {
+      "typedRoutes": true
+    }
+  }
+}
