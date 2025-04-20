@@ -4,16 +4,20 @@ services:
     ports:
       - "5050:5000"
     environment:
-      - MONGO_URI=mongodb://mongo:27017/asset-management
+      - MONGO_URI=mongodb://admin:Mongo123@mongo:27017/asset-management?authSource=admin
+      - JWT_SECRET=your_jwt_secret
     depends_on:
       - mongo
 
   mongo:
     image: mongo:6
     ports:
-      - "27018:27017"
+      - "27018:27017"  # 27018 exposed on host, internal is 27017
     volumes:
       - mongo_data:/data/db
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=admin
+      - MONGO_INITDB_ROOT_PASSWORD=Mongo123
 
   frontend:
     build:
